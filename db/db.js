@@ -28,11 +28,6 @@ class DB {
     return rows;
   }
 
-  async getAllData(){
-    const sql = `select * from temperature;`;
-    const [rows,fields] = await this.promisePool.query(sql);
-    return rows;
-  }
 }
 
 export default DB
