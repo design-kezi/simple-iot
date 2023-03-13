@@ -13,7 +13,18 @@ client.on('connect', (connack) => {
   console.log('## test publisher connected')
 
   setInterval(()=>{
-    client.publish('test_topic', 'hello');
+    console.log("## published")
+    client.publish('data/202303AIOTM1/temperature', JSON.stringify({
+      device_id: 1,
+      temperature: 20, 
+      timestamp: Date.now(),
+    }));
+
+    client.publish('data/202303AIOTM1/humidity', JSON.stringify({
+      device_id: 1,
+      humidity: 20, 
+      timestamp: Date.now(),
+    }));
   }, 1000)
 });
 
